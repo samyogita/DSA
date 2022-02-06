@@ -41,15 +41,15 @@ class SlinkedList:
         # insert in Linked List
 
     def insertSLL(self, value, location):
-        newNode = Node(value)
+        newNode = Node(value) #initialize value to the node 
         if self.head is None:
             self.head = newNode
             self.tail = newNode
         else:
-            if location == 0:
+            if location == 0: #insert element at beginning of singly linked list
                 newNode.next = self.head   # newNode's next reference to first node's physical location
                 self.head = newNode
-            elif location == -1:
+            elif location == -1: #insert element at the end of the linked list
                 newNode.next = None
                 self.tail.next = newNode
                 self.tail = newNode
