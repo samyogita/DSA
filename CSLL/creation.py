@@ -19,4 +19,13 @@ class circular_sll:
     #create CSLL
 
     def create_csll(self, nodevalue):
+        node = Node(nodevalue)
+        node.next = node
+        self.head = node
+        self.tail = node
+        print("The singular CSLL has been created")
 
+circularSLL = circular_sll()
+circularSLL.create_csll(1)
+
+print([node.value for node in circularSLL])
