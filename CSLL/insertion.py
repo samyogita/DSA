@@ -31,12 +31,36 @@ class circular_sll:
         if self.head is None:
             return "The head reference is none"
         else:
-            newNode = Node()
+            newNode = Node(value)
             if location == 0:
                 newNode.next = self.head
                 self.head = newNode
                 self.tail.next = newNode
             elif location == -1:
+                newNode.next = self.tail.next 
+                self.tail.next = newNode
+                self.tail = newNode
+            else:
+                tempnode = self.head
+                index = 0
+                while index < location - 1:
+                    tempnode = tempnode.next
+                    index += 1
+                nextnode = tempnode.next 
+                tempnode.next = newNode
+                newNode.next = nextnode
+            
+            return "The node has been successfully inserted "
+
+circularSLL = circular_sll()
+print(circularSLL.createCSLL(1))
+circularSLL.insertCSLL(0, 0)
+circularSLL.insertCSLL(2, -1)
+circularSLL.insertCSLL(3, -1)
+circularSLL.insertCSLL(2, 2)
+print([node.value for node in circularSLL])
+
+
                 
 
 
