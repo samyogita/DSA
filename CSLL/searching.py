@@ -66,7 +66,7 @@ class circular_sll:
                 if tempNode == self.tail.next:
                     break
 
-    # Searching for a nodein circular singly linked list
+    # Searching for a node in circular singly linked list
     def  searchCSLL(self, nodevalue):
         if self.head is None:
             return "There is not any node in CSLL"
