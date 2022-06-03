@@ -115,13 +115,23 @@ class circular_sll:
                 nextNode = tempNode.next
                 tempNode.next = nextNode.next
 
+    # Delete entire circular singly linked list
+    def deleteEntireCSLL(self):
+        self.head = None
+        self.tail.next = None
+        self.tail = None
+
 
 circularSLL = circular_sll()
 circularSLL.createCSLL(0)
+circularSLL.insertCSLL(0, 0)
+circularSLL.insertCSLL(2, 1)
+circularSLL.insertCSLL(3, 1)
+circularSLL.insertCSLL(4, 1) 
 
 print([node.value for node in circularSLL])
+circularSLL.deleteEntireCSLL()
 
-circularSLL.deleteNode(1)
 print([node.value for node in circularSLL])
 
 
