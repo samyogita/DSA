@@ -113,6 +113,19 @@ class DoublyLinkedList:
                 current.next.prev = current
 
             print("The node has been successfully deleted")
+    # Delete entire doubly linked list
+    def deleteDLL(self):
+        if self.head is None:
+            print("There is no element in the list ")
+        else:
+            tempNode = self.head 
+            while tempNode:
+                tempNode.prev = None
+                tempNode = tempNode.next
+            self.head = None 
+            self.tail = None
+        
+        print("The linked list has successfully been deleted")
      
 doublyLL = DoublyLinkedList()
 doublyLL.createDLL(5)
@@ -125,4 +138,5 @@ print([node.value for node in doublyLL])
 #doublyLL.reverseTraversalDLL()
 #print(doublyLL.searchDLL(2))
 doublyLL.deleteNode(1)
+doublyLL.deleteDLL()
 print([node.value for node in doublyLL])
