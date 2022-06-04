@@ -1,8 +1,3 @@
-
-
-from platform import node
-
-
 class Node:
     def __init__(self, value=None):
         self.value = value
@@ -129,5 +124,5 @@ print([node.value for node in doublyLL])
 # doublyLL.traverseDLL()
 #doublyLL.reverseTraversalDLL()
 #print(doublyLL.searchDLL(2))
-doublyLL.deleteNode(5)
+doublyLL.deleteNode(1)
 print([node.value for node in doublyLL])
