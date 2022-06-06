@@ -134,6 +134,20 @@ class CircularDoublyLinkedList:
                 current.next.prev = current
             print("The node has been successfully deleted")
 
+    # Delete entire linked list
+    def deleteCDLL(self):
+        if self.head is None:
+            print("The circular doubly linked list does not exist")
+        else:
+            self.tail.next = None
+            tempNode = self.head
+            while tempNode:
+                tempNode.prev = None
+                tempNode = tempNode.next
+            self.head = None
+            self.tail = None
+            print("The circular doubly linked list is successfully deleted")
+
 
 circularDLL = CircularDoublyLinkedList()
 circularDLL.CreateDLL(6)
@@ -143,7 +157,8 @@ circularDLL.insertCDLL(2,0)
 print([node.value for node in circularDLL])
 #circularDLL.traversalCDLL()
 #circularDLL.reverseTraversal()
-circularDLL.deleteNode(0)
+#circularDLL.deleteNode(0)
+circularDLL.deleteCDLL()
 print([node.value for node in circularDLL])
 
     
