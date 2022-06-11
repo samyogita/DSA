@@ -29,8 +29,8 @@ class Stack:
     def push(self, value):
         if self.isFull():
             return "Stack is full"
-        else 
-        self.list.append(value)
+        else: 
+            self.list.append(value)
         return "The element has successfully inserted"
 
     # Pop
