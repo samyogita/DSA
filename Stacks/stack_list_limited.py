@@ -31,7 +31,7 @@ class Stack:
             return "Stack is full"
         else: 
             self.list.append(value)
-        return "The element has successfully inserted"
+            return "The element has successfully inserted"
 
     # Pop
     def pop(self):
