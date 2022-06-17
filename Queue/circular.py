@@ -74,7 +74,7 @@ class Queue:
 
     
 
-customQueue = Queue()
+customQueue = Queue(5)
 print(customQueue.isFull())
 customQueue.enqueue(1)
 customQueue.enqueue(2)
