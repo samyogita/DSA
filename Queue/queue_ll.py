@@ -1,11 +1,8 @@
-from multiprocessing.sharedctypes import Value
-
-
 class Node:
     def __init__(self, value=None):
         self.value = value
-        self.next= None
-
+        self.next = None
+    
     def __str__(self):
         return str(self.value)
 
@@ -22,24 +19,56 @@ class LinkedList:
 
 class Queue:
     def __init__(self):
-        self.LinkedList = LinkedList()
-
-    def _str__(self):
-        values = [str(x) for x in self.LinkedList]
+        self.linkedList = LinkedList()
+    
+    def __str__(self):
+        values = [str(x) for x in self.linkedList]
         return ' '.join(values)
-
     
     def enqueue(self, value):
         newNode = Node(value)
-        if self.LinkedList.head == None:
-            self.LinkedList.head = newNode
-            self.LinkedList.tail = newNode
+        if self.linkedList.head == None:
+            self.linkedList.head = newNode
+            self.linkedList.tail = newNode
         else:
-            self.LinkedList.tail.next = newNode
-            self.LinkedList.tail = newNode
+            self.linkedList.tail.next = newNode
+            self.linkedList.tail = newNode
+    
+    def isEmpty(self):
+        if self.linkedList.head == None:
+            return True
+        else:
+            return False
+    
+    def dequeue(self):
+        if self.isEmpty():
+            return "There is not any node in the Queue"
+        else:
+            tempNode = self.linkedList.head
+            if self.linkedList.head == self.linkedList.tail:
+                self.linkedList.head = None
+                self.linkedList.tail = None
+            else:
+                self.linkedList.head = self.linkedList.head.next
+            return tempNode
+    
+    def peek(self):
+        if self.isEmpty():
+            return "There is not any node in the Queue"
+        else:
+            return self.linkedList.head
+    
+    def delete(self):
+        self.linkedList.head = None
+        self.linkedList.tail = None
 
-customQueue = Queue()
-customQueue.enqueue(1)
-customQueue.enqueue(2)
-customQueue.enqueue(3)
-print(customQueue)
+
+
+
+custQueue = Queue()
+custQueue.enqueue(1)
+custQueue.enqueue(2)
+custQueue.enqueue(3)
+print(custQueue)
+print(custQueue.peek())
+print(custQueue)
