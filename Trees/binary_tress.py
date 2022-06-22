@@ -11,6 +11,10 @@ class TreeNode:
 
 newBT = TreeNode("Drinks")
 leftChild = TreeNode("Hot")
+tea = TreeNode("Tree")
+coffee = TreeNode("Coffee")
+leftChild.leftChild = tea
+leftChild.rightChild = coffee
 rightChild = TreeNode("Cold")
 newBT.leftChild = leftChild
 newBT.rightChild = rightChild
