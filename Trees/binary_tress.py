@@ -33,6 +33,15 @@ def inOrderTraversal(rootNode):
 
 inOrderTraversal(newBT)
 
+def postOrderTraversal(rootNode):
+    if not rootNode:
+        return
+    inOrderTraversal(rootNode.leftChild)
+    inOrderTraversal(rootNode.rightChild)
+    print(rootNode.data)
+
+postOrderTraversal(newBT)
+
 
 
 
