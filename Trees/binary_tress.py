@@ -1,3 +1,4 @@
+from logging import root
 from turtle import right
 
 
@@ -22,4 +23,16 @@ def preOrderTraversal(rootNode):
     preOrderTraversal(rootNode.rightChild)
 
 preOrderTraversal(newBT)
+
+def inOrderTraversal(rootNode):
+    if not rootNode:
+        return 
+    inOrderTraversal(rootNode.leftChild)
+    print(rootNode.data)
+    inOrderTraversal(rootNode.rightChild)
+
+inOrderTraversal(newBT)
+
+
+
 
