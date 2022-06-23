@@ -1,6 +1,6 @@
 from logging import root
 from turtle import right
-
+import queue_ll as queue
 
 class TreeNode:
     def __init__(self, data):
@@ -11,7 +11,7 @@ class TreeNode:
 
 newBT = TreeNode("Drinks")
 leftChild = TreeNode("Hot")
-tea = TreeNode("Tree")
+tea = TreeNode("Tea")
 coffee = TreeNode("Coffee")
 leftChild.leftChild = tea
 leftChild.rightChild = coffee
@@ -26,7 +26,7 @@ def preOrderTraversal(rootNode):
     preOrderTraversal(rootNode.leftChild)
     preOrderTraversal(rootNode.rightChild)
 
-preOrderTraversal(newBT)
+#preOrderTraversal(newBT)
 
 def inOrderTraversal(rootNode):
     if not rootNode:
@@ -35,7 +35,7 @@ def inOrderTraversal(rootNode):
     print(rootNode.data)
     inOrderTraversal(rootNode.rightChild)
 
-inOrderTraversal(newBT)
+#inOrderTraversal(newBT)
 
 def postOrderTraversal(rootNode):
     if not rootNode:
@@ -44,7 +44,28 @@ def postOrderTraversal(rootNode):
     inOrderTraversal(rootNode.rightChild)
     print(rootNode.data)
 
-postOrderTraversal(newBT)
+#postOrderTraversal(newBT)
+
+def levelOrderTraversal(rootNode):
+    if not rootNode:
+        return
+    else:
+        customQueue = queue.Queue()
+        customQueue.enqueue(rootNode)
+        while not (customQueue.isEmpty()):
+            root = customQueue.dequeue()
+            print(root.value.data)
+            if (root.value.leftChild is not None):
+                customQueue.enqueue(root.value.leftChild)
+            
+            if (root.value.rightChild is not None):
+                customQueue.enqueue(root.value.rightChild)
+
+levelOrderTraversal(newBT)
+
+
+
+
 
 
 
