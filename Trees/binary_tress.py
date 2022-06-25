@@ -61,7 +61,7 @@ def levelOrderTraversal(rootNode):
             if (root.value.rightChild is not None):
                 customQueue.enqueue(root.value.rightChild)
 
-levelOrderTraversal(newBT)
+#levelOrderTraversal(newBT)
 
 def searchBT(rootNode, nodeValue):
     if not rootNode:
@@ -81,7 +81,32 @@ def searchBT(rootNode, nodeValue):
                 customQueue.enqueue(root.value.rightChild)
         return "Not found"
 
-print(searchBT(newBT, "Tea"))
+def insertNodeBT(rootNode, newNode):
+    if not rootNode:
+        rootNode = newNode
+    else:
+        customQueue = queue.Queue
+        customQueue.dequeue(rootNode)
+        while not(customQueue.isEmpty()):
+            root = customQueue.dequeue
+            if root.value.leftChild is not None:
+                customQueue.enqueue(root.value.leftChild)
+            else:
+                customQueue = newNode
+                return "Successfully inserted"
+
+            if root.value.rightChild is not None:
+                customQueue.enqueue(root.value.rightChild)
+            
+            else:
+                customQueue = newNode
+                return "Successfully inserted"
+            
+
+
+newNode = TreeNode("Cola")
+print(insertNodeBT(newBT, newNode))
+levelOrderTraversal(newBT)
             
 
 
