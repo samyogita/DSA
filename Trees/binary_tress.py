@@ -175,12 +175,18 @@ def deleteNodeBT(rootNode, node):
 
 deleteNodeBT(newBT, 'Hot')
 levelOrderTraversal(newBT)
-            
 
+def deleteBT(rootNode):
+    rootNode.data = None
+    rootNode.leftChild = None
+    rootNode.rightChild = None
+    return "Successfully deleted"
+            
+deleteBT(newBT)
 
 #newNode = getDeepestNode(newBT)
 #deleteDeepestNode(newBT, newNode)
-#levelOrderTraversal(newBT)
+levelOrderTraversal(newBT)
                 
                 
 
