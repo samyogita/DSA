@@ -6,10 +6,10 @@ class BinaryTree:
 
     def insertNode(self, value):
         if self.lastUsedIndex + 1 == self.maxSize:
-            return "Binary tree is full"
+            return "The Binary Tree is full"
         self.customList[self.lastUsedIndex+1] = value
         self.lastUsedIndex += 1
-        return "The value has been inserted successfully"
+        return "The value has been successfully inserted"
 
     def searchNode(self, nodeValue):
         for i in range(len(self.customList)):
@@ -26,31 +26,40 @@ class BinaryTree:
 
     def inOrderTraversal(self, index):
         if index > self.lastUsedIndex:
-            return 
-        self.preOrderTraversal(index*2)
+            return
+        self.inOrderTraversal(index*2)
         print(self.customList[index])
-        self.preOrderTraversal(index*2 + 1)
+        self.inOrderTraversal(index*2+1)
 
     def postOrderTraversal(self, index):
         if index > self.lastUsedIndex:
             return 
-        self.postOrderTraversal(index * 2)
-        self.postOrderTraversal(index*2 + 1)
+        self.postOrderTraversal(index*2)
+        self.postOrderTraversal(index*2+1)
         print(self.customList[index])
 
     def levelOrderTraversal(self, index):
         for i in range(index, self.lastUsedIndex+1):
             print(self.customList[i])
+    
+    def deleteNode(self, value):
+        if self.lastUsedIndex == 0:
+            return "There is no node to delete"
+        for i in range(1, self.lastUsedIndex+1):
+            if self.customList[i] == value:
+                self.customList[i] = self.customList[self.lastUsedIndex]
+                self.customList[self.lastUsedIndex] = None
+                self.lastUsedIndex -= 1
+                return "The node has been successfully deleted"
 
+    
 
-
-        
 newBT = BinaryTree(8)
-print(newBT.insertNode("Drinks"))
-print(newBT.insertNode("Hot"))
-print(newBT.insertNode("Cold"))
-print(newBT.insertNode("Tea"))
-print(newBT.insertNode("Coffee"))
+newBT.insertNode("Drinks")
+newBT.insertNode("Hot")
+newBT.insertNode("Cold")
+newBT.insertNode("Tea")
+newBT.insertNode("Coffee")
 #newBT.preOrderTraversal(1)
 #newBT.inOrderTraversal(1)
 #newBT.postOrderTraversal(1)
