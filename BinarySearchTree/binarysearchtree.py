@@ -74,6 +74,18 @@ def searchNode(rootNode, nodeValue):
         else:
             searchNode(rootNode.rightChild, nodeValue)
 
+def minValueNode(bstNode):
+    current = bstNode
+    while (current.leftChild is not None):
+        current = current.leftChild
+    return current
+
+
+
+
+
+
+
 
 
 
