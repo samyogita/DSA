@@ -103,20 +103,27 @@ def deleteNode(rootNode, nodeValue):
         rootNode.rightChild = deleteNode(rootNode.rightChild, temp.data)
     return rootNode
 
+def deleteBST(rootNode):
+    rootNode.data = None
+    rootNode.leftChild = None
+    rootNode.rightChild = None
+    return "The tree has been successfully deleted"
+
 newBST = BSTNode(None)
-print(insertNode(newBST, 70))
-print(insertNode(newBST, 50))
-print(insertNode(newBST, 90))
-print(insertNode(newBST, 30))
-print(insertNode(newBST, 60))
-print(insertNode(newBST, 80))
-print(insertNode(newBST, 100))
-print(insertNode(newBST, 20))
-print(insertNode(newBST, 40))
+insertNode(newBST, 70)
+insertNode(newBST, 50)
+insertNode(newBST, 90)
+insertNode(newBST, 30)
+insertNode(newBST, 60)
+insertNode(newBST, 80)
+insertNode(newBST, 100)
+insertNode(newBST, 20)
+insertNode(newBST, 40)
 #preOrderTraversal(newBST)
 #inOrderTraversal(newBST)
 #postOrderTraversal(newBST)
 #levelOrderTraversal(newBST)
 #searchNode(newBST, 60)
 deleteNode(newBST, 20)
+print(deleteBST(newBST))
 levelOrderTraversal(newBST)
