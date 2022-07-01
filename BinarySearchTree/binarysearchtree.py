@@ -1,6 +1,6 @@
 from logging import root
 from platform import node
-
+import queue_ll as queue
 
 class BSTNode:
     def __init__(self, data):
@@ -46,6 +46,20 @@ def postOrderTraversal(rootNode):
     postOrderTraversal(rootNode.rightChild)
     print(rootNode.data)
 
+def levelOrderTraversal(rootNode):
+    if not rootNode:
+        return
+    else:
+        customQueue = queue.Queue()
+        customQueue.enqueue(rootNode)
+        while not customQueue.isEmpty():
+            root = customQueue.dequeue()
+            print(root.value.data)
+            if root.value.leftChild is not None:
+                customQueue.enqueue(root.value.leftChild)
+            if root.value.rightChild is not None:
+                customQueue.enqueue(root.value.rightChild)
+
 
 newBST = BSTNode(None)
 print(insertNode(newBST, 70))
@@ -59,4 +73,5 @@ print(insertNode(newBST, 20))
 print(insertNode(newBST, 40))
 #preOrderTraversal(newBST)
 #inOrderTraversal(newBST)
-postOrderTraversal(newBST)
+#postOrderTraversal(newBST)
+levelOrderTraversal(newBST)
