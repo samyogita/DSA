@@ -43,4 +43,18 @@ def levelOrderTraversal(rootNode):
             if root.value.rightChild is not None:
                 customQueue.enqueue(root.value.rightChild)
 
+def searchNode(rootNode, nodeValue):
+    if rootNode.data == nodeValue:
+        print('The value is found')
+    elif nodeValue < rootNode.data:
+        if rootNode.leftChild.data == nodeValue:
+            print('The value is found')
+        else:
+            searchNode(rootNode.leftChild, nodeValue)
+    else:
+        if rootNode.rightChild.data == nodeValue:
+            print('The value is found')
+        else:
+            searchNode(rootNode.rightChild, nodeValue)
+
 newAVL = AVLNode(10)
