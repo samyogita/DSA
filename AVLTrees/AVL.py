@@ -57,4 +57,12 @@ def searchNode(rootNode, nodeValue):
         else:
             searchNode(rootNode.rightChild, nodeValue)
 
+def getHeight(rootNode):
+    if not rootNode:
+        return 0
+    return rootNode.height
+
+
+
+
 newAVL = AVLNode(10)
