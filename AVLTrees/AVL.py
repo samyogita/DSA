@@ -109,7 +109,7 @@ def insertNode(rootNode, nodeValue):
 
 
 
-newAVL = AVLNode(10)
+newAVL = AVLNode(5)
 newAVL = insertNode(newAVL, 10)
 newAVL = insertNode(newAVL, 15)
 newAVL = insertNode(newAVL, 20)
