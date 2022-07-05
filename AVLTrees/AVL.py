@@ -6,7 +6,7 @@ class AVLNode:
         self.data = data 
         self.leftChild = None
         self.rightChild = None
-        self.height =  1
+        self.height = 1
 
 
 def preOrderTraversal(rootNode):
@@ -36,7 +36,7 @@ def levelOrderTraversal(rootNode):
     else:
         customQueue = queue.Queue()
         customQueue.enqueue(rootNode)
-        while not customQueue.isEmpty():
+        while not(customQueue.isEmpty()):
             root = customQueue.dequeue()
             print(root.value.data)
             if root.value.leftChild is not None:
@@ -125,7 +125,7 @@ def deleteNode(rootNode, nodeValue):
             temp = rootNode.rightChild
             rootNode = None
             return temp
-        if rootNode.rightChild is None:
+        elif rootNode.rightChild is None:
             temp = rootNode.leftChild
             rootNode = None
             return temp
@@ -146,11 +146,16 @@ def deleteNode(rootNode, nodeValue):
         return leftRotate(rootNode)
     return rootNode
 
+def deleteAVL(rootNode):
+    rootNode.data = None
+    rootNode.leftChild = None
+    rootNode.rightChild = None
+    return "The AVL tree has been deleted successfully"
 
 
 newAVL = AVLNode(5)
 newAVL = insertNode(newAVL, 10)
 newAVL = insertNode(newAVL, 15)
 newAVL = insertNode(newAVL, 20)
-newAVL = deleteNode(newAVL, 15)
+deleteAVL(newAVL)
 levelOrderTraversal(newAVL)
