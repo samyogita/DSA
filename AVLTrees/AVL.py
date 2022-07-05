@@ -107,7 +107,10 @@ def insertNode(rootNode, nodeValue):
         return leftRotate(rootNode)
     return rootNode
 
-
+def getMinimumNode(rootNode):
+    if rootNode is None or rootNode.leftChild is None:
+        return rootNode
+    return getMinimumNode(rootNode.leftChild)
 
 newAVL = AVLNode(5)
 newAVL = insertNode(newAVL, 10)
