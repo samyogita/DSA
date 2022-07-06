@@ -23,6 +23,27 @@ def levelOrderTraversal(rootNode):
         for i in range(1, rootNode.heapSize+1):
             print(rootNode.customList[i])
 
+def heapifyTreeInsert(rootNode, index, heapType):
+    parentIndex = int(index/2)
+    if index <= 1:
+        return 
+    if heapType == "Min":
+        if rootNode.customList[index] < rootNode.customList[parentIndex]:
+            temp = rootNode.customList[index]
+            rootNode.customList[index] = rootNode.customList[parentIndex]
+            rootNode.customList[parentIndex] = temp
+        heapifyTreeInsert(rootNode, parentIndex, heapType)
+    elif heapType == "Max":
+        if rootNode.customList[index] > rootNode.customList[parentIndex]:
+            temp = rootNode.customList[index]
+            rootNode.customList[index] = rootNode.customList[parentIndex]
+            rootNode.customList[parentIndex] = temp
+        heapifyTreeInsert(rootNode, parentIndex, heapType)
 
+
+
+
+
+def insertNode(rootNode):
 newBinaryHeap = Heap(5)
 print(sizeofHeap(newBinaryHeap))
