@@ -101,12 +101,15 @@ def extractNode(rootNode, heapType):
         heapifyTreeExtract(rootNode, 1, heapType)
         return extractedNode
 
-        
+def deleteHeap(rootNode):
+    rootNode.customList = None
+
 newHeap = Heap(5)
 insertNode(newHeap, 4, "Max")
 insertNode(newHeap, 5, "Max")
 insertNode(newHeap, 2, "Max")
 insertNode(newHeap, 1, "Max")
 extractNode(newHeap, 'Max')
+deleteHeap(newHeap)
 levelOrderTraversal(newHeap)
 #print(sizeofHeap(newHeap))
