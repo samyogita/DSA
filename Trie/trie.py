@@ -1,4 +1,7 @@
 
+from requests import delete
+
+
 class TrieNode:
     def __init__(self):
         self.children = {}
@@ -32,9 +35,39 @@ class Trie:
             return True
         else:
             return False
-
     
+
+def deleteString(root, word, index):
+    ch = word[index]
+    currentNode = root.children.get(ch)
+    canThisNodeBeDeleted = False
+
+    if len(currentNode.children) > 1:
+        deleteString(currentNode, word, index+1)
+        return False
+    
+    if index == len(word) - 1:
+        if len(currentNode.children) >= 1:
+            currentNode.endOfString = False
+            return False
+        else:
+            root.children.pop(ch)
+            return True
+    
+    if currentNode.endOfString == True:
+        deleteString(currentNode, word, index+1)
+        return False
+
+    canThisNodeBeDeleted = deleteString(currentNode, word, index+1)
+    if canThisNodeBeDeleted == True:
+        root.children.pop(ch)
+        return True
+    else:
+        return False
+       
 newTrie = Trie()
 newTrie.insertString("App")
-newTrie.insertString("Apple")
+newTrie.insertString("Appl")
+deleteString(newTrie.root, "App", 0)
 print(newTrie.searchString("App"))
+
