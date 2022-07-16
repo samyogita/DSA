@@ -93,7 +93,15 @@ def mergeSort(customList, l, r):
         merge(customList, l, m, r)
     return customList
     
-
+def partition(customList, low, high):
+    i = low - 1
+    pivot = customList[high]
+    for j in range(low,high):
+        if customList[j] <= pivot:
+            i += 1
+            customList[i], customList[j] = customList[j], customList[i]
+    customList[i+1], customList[high] = customList[high], customList[i+1]
+    return (i+1)
 
 cList = [2, 1, 7, 6, 5, 3, 4, 9, 8]
 #bubbleSort(cList)
