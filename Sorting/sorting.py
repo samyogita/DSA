@@ -103,9 +103,17 @@ def partition(customList, low, high):
     customList[i+1], customList[high] = customList[high], customList[i+1]
     return (i+1)
 
+def quickSort(customList, low, high):
+    if low < high:
+        pi = partition(customList, low, high)
+        quickSort(customList, low, pi-1)
+        quickSort(customList, pi+1, high)
+
 cList = [2, 1, 7, 6, 5, 3, 4, 9, 8]
 #bubbleSort(cList)
 #selectionSort(cList)
 #insertionSort(cList)
 #print(bucketSort(cList))
-print(mergeSort(cList, 0, 8))
+#print(mergeSort(cList, 0, 8))
+quickSort(cList, 0, 8)
+print(cList)
